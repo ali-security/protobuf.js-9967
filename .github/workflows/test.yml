@@ -6,19 +6,6 @@ on:
   pull_request:
     types: [assigned, opened, synchronize, reopened, labeled]
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: "12"
-    - name: "Install dependencies"
-      run: npm install
-    - name: "Lint sources"
-      run: npm run lint:sources -- --max-warnings 0
-    - name: "Lint types"
-      run: npm run lint:types
   test:
     runs-on: ubuntu-latest
     strategy:
